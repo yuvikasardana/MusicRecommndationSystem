@@ -3,11 +3,14 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import random
 from emotion_detector import detect_emotion
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 app = Flask(__name__)
 
-CLIENT_ID = 'e434d22f1e9c4885aad32331c3b8863b'
-CLIENT_SECRET = '3c24870f483542749f60a47a8bdfdbff'
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 auth_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
 sp = spotipy.Spotify(auth_manager=auth_manager)
 
