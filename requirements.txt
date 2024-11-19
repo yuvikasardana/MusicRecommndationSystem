@@ -1,0 +1,7 @@
+spotipy
+numpy
+opencv-python
+keras
+tensorflow
+flask
+PyExecJS
