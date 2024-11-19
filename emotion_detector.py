@@ -38,9 +38,10 @@ while True:
         cv2.putText(frame, emotion_dict[maxindex], (x+5, y-20), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
 
     cv2.imshow('Emotion Detection', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('s'):
         break
 
+    print("Press S to show song list")
 cap.release()
 cv2.destroyAllWindows()
 # def capture_frame():

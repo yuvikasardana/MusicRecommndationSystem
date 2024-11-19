@@ -2,13 +2,13 @@ from flask import Flask , jsonify
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import random
-from emotion_detector import detect_emotion
+from emotion_detector import maxindex
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 app = Flask(__name__)
-
+    
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 auth_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
@@ -60,11 +60,12 @@ def get_songs_for_emotion(emotion):
     return [track["name"] for track in recommendations["tracks"]]
 
 # @app.route('/detect-emotion-and-recommend', methods=['GET'])
+@app.route('/detect-emotion-and-recommend', methods=['GET'])
 def recommend_songs():
     """
     Detect emotion and recommend Bollywood songs.
     """
-    emotion = detect_emotion()
+    emotion = emotion_dict[maxindex]
     if not emotion:
         return jsonify({"error": "No face detected. Please try again."}), 400
 
