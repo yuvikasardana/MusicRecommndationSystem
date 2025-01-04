@@ -3,7 +3,7 @@ document.getElementById('detect-button').addEventListener('click', async () => {
     const emotionSpan = document.getElementById('detected-emotion');
     songList.innerHTML = ''; // Clear previous results
     emotionSpan.textContent = 'Detecting...';
-
+    console.log("songs dila do")
     try {
         const response = await fetch('/detect-emotion-and-recommend', {
             method: 'GET',
